@@ -2,7 +2,7 @@ import { useContext } from "react";
 import "./App.css";
 import Header from "./components/header/Header";
 import AvailableMeals from "./components/meal/AvailableMeals";
-import MealsSummary from "./components/MealsSummary";
+import MealsSummary from "./components/ui/MealsSummary";
 // import CartIcon from "./components/ui/cart/CartIcon";
 import MealsContext from "./store/meals-context";
 
