@@ -9,8 +9,7 @@ export const MealsContextProvider = (props) => {
   let [meals, setMeals] = useState([]);
 
   const addMeal = (meal, count) => {
-    console.log(`adding ${meal.name} ${count} times`);
-    setMeals([...meals, meal]);
+    setMeals([...meals, {meal: meal, count: count}]);
   };
 
   return (
