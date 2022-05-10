@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import "./App.css";
-import Header from "./components/header/Header";
+import Header from "./components/layout/Header";
 import AvailableMeals from "./components/meal/AvailableMeals";
 import MealsSummary from "./components/MealsSummary";
 // import CartIcon from "./components/ui/cart/CartIcon";
