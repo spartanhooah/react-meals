@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import "./App.css";
+import Cart from "./components/cart/Cart";
 import Header from "./components/layout/Header";
 import AvailableMeals from "./components/meal/AvailableMeals";
 import MealsSummary from "./components/ui/MealsSummary";
-// import CartIcon from "./components/ui/cart/CartIcon";
 import MealsContext from "./store/meals-context";
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
 
   return (
     <>
+      <Cart />
       <Header />
       <MealsSummary />
       <AvailableMeals meals={ctx.meals} />

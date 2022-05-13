@@ -17,8 +17,8 @@ const MealItemForm = (props) => {
 
   return (
     <form className={classes.form} onSubmit={submitHandler}>
-      <div>
-        <h3>Amount</h3>
+      <div className={classes.input}>
+        <label htmlFor={'amount'}>Amount</label>
         <input type="number" inputMode="numeric" onChange={mealCountHandler} />
       </div>
       <button type="submit">
