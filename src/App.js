@@ -12,7 +12,6 @@ function App() {
   return (
     <>
       <Header />
-      {/* <CartIcon /> */}
       <MealsSummary />
       <AvailableMeals meals={ctx.meals} />
     </>

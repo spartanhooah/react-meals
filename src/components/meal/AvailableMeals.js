@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Card from "../ui/card/Card";
 import classes from "./AvailableMeals.module.css";
-import MealItem from "./MealItem";
-import MealItemForm from "./MealItemForm";
+import MealItem from "./mealitem/MealItem";
+import MealItemForm from "./mealitem/MealItemForm";
 
 const DUMMY_MEALS = [
   {
@@ -36,10 +36,10 @@ const AvailableMeals = () => {
     <Card className={classes.meals}>
       <ul>
         {DUMMY_MEALS.map((meal) => (
-          <React.Fragment key={meal.id}>
+          <Fragment key={meal.id}>
             <MealItem meal={meal} />
-            <MealItemForm meal={meal}/>
-          </React.Fragment>
+            <MealItemForm meal={meal} />
+          </Fragment>
         ))}
       </ul>
     </Card>
