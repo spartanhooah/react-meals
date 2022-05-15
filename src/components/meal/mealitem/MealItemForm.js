@@ -1,11 +1,9 @@
-import { useContext, useRef, useState } from "react";
-import MealsContext from "../../../store/meals-context";
+import { useRef, useState } from "react";
 import classes from "./MealItemForm.module.css";
 
 const MealItemForm = (props) => {
   const [mealCount, setMealCount] = useState(0);
   const [isAmountValid, setIsAmountValid] = useState(true);
-  const ctx = useContext(MealsContext);
   const amountInputRef = useRef();
 
   const mealCountHandler = (event) => {
