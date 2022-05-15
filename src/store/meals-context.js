@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const MealsContext = React.createContext({
   meals: [],
-  totalAmount: 0,
+  totalPrice: 0,
   addMeal: (meal, count) => {},
   removeMeal: (id) => {}
 });

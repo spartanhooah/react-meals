@@ -30,6 +30,9 @@ const MealItemForm = (props) => {
       <div className={classes.input}>
         <label htmlFor={"amount"}>Amount</label>
         <input
+          min="1"
+          max="5"
+          placeholder="0"
           ref={amountInputRef}
           type="number"
           inputMode="numeric"
