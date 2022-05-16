@@ -25,8 +25,8 @@ const Cart = ({ onHideCart }) => {
           name={meal.name}
           count={meal.count}
           price={meal.price}
-          onRemove={removeMealHandler.bind(null, meal.id)}
-          onAdd={addMealHandler(null, meal.id)}
+          onAdd={() => addMealHandler(meal)}
+          onRemove={() => removeMealHandler(meal.id)}
         />
       ))}
     </ul>
