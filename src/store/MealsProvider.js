@@ -7,14 +7,15 @@ const defaultMealsState = {
 };
 
 const mealsReducer = (state, action) => {
+  const existingMealIndex = state.meals.findIndex(
+    (meal) => meal.id === action.meal.id
+  );
+  const existingMeal = state.meals[existingMealIndex];
+
   if (action.type === "ADD_MEAL") {
     const updatedTotalPrice =
       state.totalPrice + action.meal.price * action.meal.count;
-    const existingMealIndex = state.meals.findIndex(
-      (meal) => meal.id === action.meal.id
-    );
 
-    const existingMeal = state.meals[existingMealIndex];
     let updatedMeals;
 
     if (existingMeal) {
@@ -34,7 +35,25 @@ const mealsReducer = (state, action) => {
       meals: updatedMeals,
       totalPrice: updatedTotalPrice,
     };
-  } else if (action.type === "REMOVE_MEAL") {
+  }
+
+  if (action.type === "REMOVE_MEAL") {
+    const updatedTotalPrice = state.totalPrice - existingMeal.price;
+
+    let updatedMeals;
+
+    if (existingMeal.count === 1) {
+      updatedMeals = state.meals.filter((meal) => meal.id !== action.meal.id);
+    } else {
+      const updatedMeal = {...existingMeal, count: existingMeal.count - 1}
+      updatedMeals = [...state.meals];
+      updatedMeals[existingMealIndex] = updatedMeal;
+    }
+
+    return {
+      meals: updatedMeals,
+      totalPrice: updatedTotalPrice,
+    };
   }
 
   return defaultMealsState;
@@ -50,15 +69,15 @@ const MealsProvider = (props) => {
     dispatchMealsAction({ type: "ADD_MEAL", meal: { ...meal, count: count } });
   };
 
-  const removeMealHandler = (id) => {
-    dispatchMealsAction({ type: "REMOVE_MEAL", id: id });
+  const removeMealHandler = (meal) => {
+    dispatchMealsAction({ type: "REMOVE_MEAL", meal: meal });
   };
 
   const mealsContext = {
     meals: mealsState.meals,
     totalPrice: mealsState.totalPrice,
     addMeal: addMealHandler,
-    removeItem: removeMealHandler,
+    removeMeal: removeMealHandler,
   };
 
   return (

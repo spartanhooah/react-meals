@@ -11,10 +11,12 @@ const Cart = ({ onHideCart }) => {
   const totalPrice = `$${cartContext.totalPrice.toFixed(2)}`;
   const hasItems = cartContext.meals.length > 0;
 
-  const removeMealHandler = (id) => {};
+  const removeMealHandler = (meal) => {
+    cartContext.removeMeal(meal);
+  };
 
   const addMealHandler = (meal) => {
-    cartContext.addMeal(meal, 1)
+    cartContext.addMeal(meal, 1);
   };
 
   const cartItems = (
@@ -26,7 +28,7 @@ const Cart = ({ onHideCart }) => {
           count={meal.count}
           price={meal.price}
           onAdd={() => addMealHandler(meal)}
-          onRemove={() => removeMealHandler(meal.id)}
+          onRemove={() => removeMealHandler(meal)}
         />
       ))}
     </ul>
