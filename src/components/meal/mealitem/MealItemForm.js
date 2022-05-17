@@ -2,13 +2,8 @@ import { useRef, useState } from "react";
 import classes from "./MealItemForm.module.css";
 
 const MealItemForm = (props) => {
-  const [mealCount, setMealCount] = useState(0);
   const [isAmountValid, setIsAmountValid] = useState(true);
   const amountInputRef = useRef();
-
-  const mealCountHandler = (event) => {
-    setMealCount(event.target.value);
-  };
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -34,7 +29,6 @@ const MealItemForm = (props) => {
           ref={amountInputRef}
           type="number"
           inputMode="numeric"
-          onChange={mealCountHandler}
         />
       </div>
       <button type="submit">+ Add</button>
